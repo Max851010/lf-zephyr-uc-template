@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.20.0)
 set(PLATFORM "ZEPHYR" CACHE STRING "Platform to target")
-set(BOARD "native_posix")
+set(BOARD "rpi_4b")
 
 if (NOT DEFINED LF_MAIN)
-  set(LF_MAIN "HelloWorld")
+  set(LF_MAIN "SkiLift/Lift")
 endif()
 
 if (NOT DEFINED LOG_LEVEL)

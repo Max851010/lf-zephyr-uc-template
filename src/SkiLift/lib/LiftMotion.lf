@@ -1,0 +1,22 @@
+target uC
+
+import ScreenPrinter from "ScreenPrinter.lf"
+
+reactor LiftMotion {
+  input move: bool
+  input offset: int32_t
+  screenPrinter = new ScreenPrinter()
+
+  reaction(move, offset) -> screenPrinter.offset, screenPrinter.sl_init {=
+    if (offset->value == 0) {
+      lf_set(screenPrinter.sl_init, true);
+    } else {
+      if (move->value) {
+        lf_set(screenPrinter.offset, offset->value);
+        printMotionStatus("Moving");
+      } else {
+        printMotionStatus("Stop");
+      }
+    }
+  =}
+}

@@ -13,6 +13,6 @@ manifest:
   projects:
     - name: zephyr
       remote: zephyrproject-rtos
-      revision: v3.7.0
+      revision: main
       import: 
         path-prefix: deps

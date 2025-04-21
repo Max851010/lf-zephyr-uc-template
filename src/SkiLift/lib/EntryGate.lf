@@ -1,0 +1,16 @@
+/** @author Cheng Yen, Tsai */
+target uC
+
+import ScreenPrinter from "ScreenPrinter.lf"
+
+reactor EntryGate {
+  input open: bool  // Toggle mode
+
+  reaction(open) {=
+    if (open->value) {
+      printGateStatus("Open");
+    } else {
+      printGateStatus("Close");
+    }
+  =}
+}
