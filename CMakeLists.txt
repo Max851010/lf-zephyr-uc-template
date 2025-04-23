@@ -3,13 +3,15 @@ set(PLATFORM "ZEPHYR" CACHE STRING "Platform to target")
 set(BOARD "rpi_4b")
 
 if (NOT DEFINED LF_MAIN)
-  set(LF_MAIN "SkiLift/Lift")
+  set(LF_MAIN "PressureSensor")
 endif()
 
 if (NOT DEFINED LOG_LEVEL)
   set(LOG_LEVEL "LF_LOG_LEVEL_WARN")
 endif()
 
+set(ZEPHYR_EXTRA_MODULES "${CMAKE_SOURCE_DIR}/modules/HX711")
+find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 find_package(Zephyr REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/deps/zephyr)
 project(reactor-uc-zephyr)
 

@@ -13,6 +13,10 @@ manifest:
   projects:
     - name: zephyr
       remote: zephyrproject-rtos
-      revision: main
+      revision: v3.7.0
       import: 
         path-prefix: deps
+    - name: HX711
+      path: modules/HX711
+      url: https://github.com/nobodyguy/HX711_zephyr_driver
+      revision: refs/tags/zephyr-v3.3.0
